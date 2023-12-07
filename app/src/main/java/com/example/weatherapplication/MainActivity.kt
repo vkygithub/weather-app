@@ -7,9 +7,9 @@ import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var pollutionFragment: PollutionFragment
 
-    private var city: String = "berlin"
+    private var city: String = "Villupuram"
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
 
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        fetchLocation()
+        //fetchLocation()
         getCurrentWeather(city)
 
         binding.tvForecast.setOnClickListener {
@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         task.addOnSuccessListener {
-            val geocoder= Geocoder(this, Locale.getDefault())
+            val geocoder=Geocoder(this,Locale.getDefault())
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
                 geocoder.getFromLocation(it.latitude,it.longitude,1, object: Geocoder.GeocodeListener{
